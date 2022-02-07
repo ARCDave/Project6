@@ -18,6 +18,7 @@ namespace Project6
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //I made a change.
         }
 
         public IConfiguration Configuration { get; }
