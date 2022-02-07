@@ -10,7 +10,7 @@ namespace Project6.Models
     {
         public TaskInputContext(DbContextOptions<TaskInputContext> options) : base(options)
         {
-            // leave blank?
+            // leave blank? I don't know what this does.
         }
 
         public DbSet<TaskInputContext> Responses { get; set; }
