@@ -4,10 +4,12 @@
 
 @model Project6.Models.TaskInputModel
 
-<h1>Fill out the form to add/edit a task</h1>
+<h1>Fill out the form to add/edit a task</h1><br />
+<a asp-controller="Home" asp-action="Index" class="btn-light">Home</a><br />
 
 <div>
     <form method="post">
+        <br />
         <label asp-for="Task">Task:</label>
         <input asp-for="Task" /><br />
 
