@@ -19,9 +19,20 @@ namespace Project6.Controllers
             taskContext = applications;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var tasks = taskContext.Responses
+                /*.Where()*/
+                .OrderBy(x => x.Category)
+                .ToList();
+            var category = taskContext.Categories
+                .ToList();
+            var quadrant = taskContext.Quadrants
+                .ToList();
+
+
+            return View(tasks);
         }
 
         public IActionResult Privacy()
@@ -49,7 +60,55 @@ namespace Project6.Controllers
                 return View(Response);
             }
         }
+        [HttpGet]
+        public IActionResult EditTask(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
 
-      
+            var task = taskContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View("AddTask", task);
+        }
+        [HttpPost]
+        public IActionResult EditTask(TaskInputModel edit)
+        {
+            if (ModelState.IsValid)
+            {
+                taskContext.Update(edit);
+                taskContext.SaveChanges();
+
+                return RedirectToAction("AddTask");
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View("AddTask", edit);
+            }
+        }
+        [HttpGet]
+        public IActionResult DeleteTask(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
+
+            var task = taskContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DeleteTask(TaskInputModel delete)
+        {
+            if (ModelState.IsValid)
+            {
+                taskContext.Update(delete);
+                taskContext.SaveChanges();
+
+                return RedirectToAction("DeleteTask", delete);
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View(delete);
+            }
+        }
     }
 }
