@@ -14,36 +14,95 @@ namespace Project6.Controllers
     {
         private TaskInputContext taskContext { get; set; }
 
+        public HomeController(TaskInputContext applications)
+        {
+            taskContext = applications;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var tasks = taskContext.Responses
+                /*.Where()*/
+                .OrderBy(x => x.Category)
+                .ToList();
+            var category = taskContext.Categories
+                .ToList();
+            var quadrant = taskContext.Quadrants
+                .ToList();
+
+
+            return View(tasks);
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-
-
-        /*[HttpGet]
-        public IActionResult Delete(int movieid)
+        [HttpGet]
+        public IActionResult AddTask()
         {
-            ViewBag.Category = movieContext.Category.ToList();
-
-            var movie = movieContext.Responses.Single(x => x.MovieId == movieid);
-
-            return View(movie);
-        }*/
-
-        /*[HttpPost]
-        public IActionResult Delete(MovieForm delete)
+            ViewBag.Category = taskContext.Categories.ToList();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddTask(TaskInputModel Response)
         {
+            if (ModelState.IsValid)
+            {
+                taskContext.Add(Response);
+                taskContext.SaveChanges();
+                return RedirectToAction("AddTask", Response);
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View(Response);
+            }
+        }
+        [HttpGet]
+        public IActionResult EditTask(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
 
+            var task = taskContext.Responses.Single(x => x.TaskId == taskid);
 
-            movieContext.Responses.Remove(delete);
-            movieContext.SaveChanges();
+            return View("AddTask", task);
+        }
+        [HttpPost]
+        public IActionResult EditTask(TaskInputModel edit)
+        {
+            if (ModelState.IsValid)
+            {
+                taskContext.Update(edit);
+                taskContext.SaveChanges();
 
-            return RedirectToAction("MovieList");
-        }*/
+                return RedirectToAction("AddTask");
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View("AddTask", edit);
+            }
+        }
+        [HttpGet]
+        public IActionResult DeleteTask(int taskid)
+        {
+            ViewBag.Category = taskContext.Categories.ToList();
+
+            var task = taskContext.Responses.Single(x => x.TaskId == taskid);
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DeleteTask(TaskInputModel delete)
+        {
+            
+                taskContext.Responses.Remove(delete);
+                taskContext.SaveChanges();
+
+                return RedirectToAction("DeleteTask");
+           
+        }
     }
 }
