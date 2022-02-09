@@ -97,18 +97,12 @@ namespace Project6.Controllers
         [HttpPost]
         public IActionResult DeleteTask(TaskInputModel delete)
         {
-            if (ModelState.IsValid)
-            {
-                taskContext.Update(delete);
+            
+                taskContext.Responses.Remove(delete);
                 taskContext.SaveChanges();
 
-                return RedirectToAction("DeleteTask", delete);
-            }
-            else
-            {
-                ViewBag.Category = taskContext.Categories.ToList();
-                return View(delete);
-            }
+                return RedirectToAction("DeleteTask");
+           
         }
     }
 }
