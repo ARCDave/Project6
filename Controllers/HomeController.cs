@@ -23,5 +23,26 @@ namespace Project6.Controllers
         {
             return View();
         }
+
+        /*[HttpGet]
+        public IActionResult Delete(int movieid)
+        {
+            ViewBag.Category = movieContext.Category.ToList();
+
+            var movie = movieContext.Responses.Single(x => x.MovieId == movieid);
+
+            return View(movie);
+        }*/
+
+        /*[HttpPost]
+        public IActionResult Delete(MovieForm delete)
+        {
+
+
+            movieContext.Responses.Remove(delete);
+            movieContext.SaveChanges();
+
+            return RedirectToAction("MovieList");
+        }*/
     }
 }
