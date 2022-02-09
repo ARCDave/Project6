@@ -23,10 +23,5 @@ namespace Project6.Controllers
         {
             return View();
         }
-
-        public IActionResult AddTask ()
-        {
-            return View();
-        }
     }
 }
