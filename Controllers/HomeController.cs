@@ -14,6 +14,11 @@ namespace Project6.Controllers
     {
         private TaskInputContext taskContext { get; set; }
 
+        public HomeController(TaskInputContext applications)
+        {
+            taskContext = applications;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -23,26 +28,28 @@ namespace Project6.Controllers
         {
             return View();
         }
-
-        /*[HttpGet]
-        public IActionResult Delete(int movieid)
+        [HttpGet]
+        public IActionResult AddTask()
         {
-            ViewBag.Category = movieContext.Category.ToList();
-
-            var movie = movieContext.Responses.Single(x => x.MovieId == movieid);
-
-            return View(movie);
-        }*/
-
-        /*[HttpPost]
-        public IActionResult Delete(MovieForm delete)
+            ViewBag.Category = taskContext.Categories.ToList();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddTask(TaskInputModel Response)
         {
+            if (ModelState.IsValid)
+            {
+                taskContext.Add(Response);
+                taskContext.SaveChanges();
+                return RedirectToAction("AddTask", Response);
+            }
+            else
+            {
+                ViewBag.Category = taskContext.Categories.ToList();
+                return View(Response);
+            }
+        }
 
-
-            movieContext.Responses.Remove(delete);
-            movieContext.SaveChanges();
-
-            return RedirectToAction("MovieList");
-        }*/
+        
     }
 }
