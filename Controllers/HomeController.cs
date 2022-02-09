@@ -50,10 +50,6 @@ namespace Project6.Controllers
             }
         }
 
-            movieContext.Responses.Remove(delete);
-            movieContext.SaveChanges();
-
-            return RedirectToAction("MovieList");
-        }*/
+      
     }
 }
