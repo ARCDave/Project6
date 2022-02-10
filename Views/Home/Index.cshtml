@@ -3,10 +3,11 @@
 }
 
 <div class="text-center">
+    <h1 class="display-4">Put First Things First</h1>
     <h1>Welcome</h1>
     <h3>Need help with time management?</h3>
     <h4>We may be able to help!</h4>
-    
+
 </div>
 <body>
     <p>Life gets busy. However, Stephen Covey has given us a great way to increase our producivity by working on time management.</p>
@@ -21,3 +22,38 @@
     <p>Click the link above to add tasks that have been completed or still to be completed.</p>
 </body>
 
+<div class="container">
+    <div class="row text-space">
+        <div class="col-6 text-right">
+            <img src="~/img/EisenhowerMatrix.jpg" width="500" />
+        </div>
+        <div class="col-6 text-left">
+            <br />
+            <h2 class="text-center">The Eisenhower Matrix</h2>
+            <br />
+            <p class=" text-center">"What is important is seldom urgent and what is urgent is seldom important."</p>
+            <p class="text-center"> -- President Eisenhower</p>
+            <br /><br />
+            <h2 class="text-center">Create Your Own:</h2><br />
+            <div class="row">
+                <div class="col">
+                    <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="AddTask">Add/Edit Task</a>
+                </div>
+                <div class="col">
+                    <a class="nav-link text-center text-dark btn-light" asp-area="" asp-controller="Home" asp-action="Quadrant">My Matrix</a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row text-center text-space">
+        <h2 class="col text-center"> Learn more about the Eisenhower Matrix:</h2><br />
+    </div>
+    <div class="row">
+        <div class="col text-center text-space">
+            <iframe width="580" height="326" src="https://www.youtube.com/embed/tT89OZ7TNwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
