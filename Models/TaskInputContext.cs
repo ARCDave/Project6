@@ -13,7 +13,7 @@ namespace Project6.Models
             // leave blank? I don't know what this does.
         }
 
-        public DbSet<TaskInputContext> Responses { get; set; }
+        public DbSet<TaskInputModel> Responses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Quadrant> Quadrants { get; set; }
 
