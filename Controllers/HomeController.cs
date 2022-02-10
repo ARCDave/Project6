@@ -22,6 +22,14 @@ namespace Project6.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            
+
+
+            return View();
+        }
+
+        public IActionResult Quadrant()
+        {
             var tasks = taskContext.Responses
                 /*.Where()*/
                 .OrderBy(x => x.Category)
@@ -31,13 +39,7 @@ namespace Project6.Controllers
             var quadrant = taskContext.Quadrants
                 .ToList();
 
-
             return View(tasks);
-        }
-
-        public IActionResult Quadrant()
-        {
-            return View();
         }
         [HttpGet]
         public IActionResult AddTask()
