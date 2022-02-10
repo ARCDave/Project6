@@ -23,52 +23,52 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .QuadOne {
-    background-color: lightgreen;
+    background-color: #99cb10;
     border-radius: 3px;
     color: black;
 }
 
 .QuadOneBorder {
-    border-color: lightgreen;
+    border-color: #99cb10;
     border-width: thick;
     border-style: solid;
     border-radius: 3px;
 }
 
 .QuadTwo {
-    background-color: lightblue;
+    background-color: #4488ed;
     border-radius: 3px;
     color: black;
 }
 
 .QuadTwoBorder {
-    border-color: lightblue;
+    border-color: #4488ed;
     border-width: thick;
     border-style: solid;
     border-radius: 3px;
 }
 
 .QuadThree {
-    background-color: lightgoldenrodyellow;
+    background-color: #ffaa23;
     border-radius: 3px;
     color: black;
 }
 
 .QuadThreeBorder {
-    border-color: lightgoldenrodyellow;
+    border-color: #ffaa23;
     border-width: thick;
     border-style: solid;
     border-radius: 3px;
 }
 
 .QuadFour {
-    background-color: lightcoral;
+    background-color: #cd1110;
     border-radius: 3px;
     color: black;
 }
 
 .QuadFourBorder {
-    border-color: lightcoral;
+    border-color: #cd1110;
     border-width: thick;
     border-style: solid;
     border-radius: 3px;
@@ -78,7 +78,14 @@ for details on configuring this project to bundle and minify static web assets. 
    margin-bottom: 25px;
 }
 
-.myBtn{
+.padded {
+    padding: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+}
+
+.myBtn {
     text-decoration: none;
     border: none;
     text-align: center;

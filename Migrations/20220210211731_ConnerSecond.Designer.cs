@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project6.Models;
 
 namespace Project6.Migrations
 {
     [DbContext(typeof(TaskInputContext))]
-    partial class TaskInputContextModelSnapshot : ModelSnapshot
+    [Migration("20220210211731_ConnerSecond")]
+    partial class ConnerSecond
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
