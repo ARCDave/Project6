@@ -50,14 +50,12 @@ namespace Project6.Controllers
             {
                 taskContext.Add(Response);
                 taskContext.SaveChanges();
-
-                return RedirectToAction("Quadrant");
+                return RedirectToAction("AddTask", Response);
             }
             else
             {
                 ViewBag.Category = taskContext.Categories.ToList();
                 ViewBag.Quadrants = taskContext.Quadrants.ToList();
-
                 return View(Response);
             }
         }
