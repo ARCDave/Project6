@@ -62,7 +62,7 @@ namespace Project6.Controllers
             }
         }
         [HttpGet]
-        public IActionResult EditTask(int taskid)
+        public IActionResult Edit(int taskid)
         {
             ViewBag.Category = taskContext.Categories.ToList();
             ViewBag.Quadrants = taskContext.Quadrants.ToList();
@@ -72,14 +72,14 @@ namespace Project6.Controllers
             return View("AddTask", task);
         }
         [HttpPost]
-        public IActionResult EditTask(TaskInputModel edit)
+        public IActionResult Edit(TaskInputModel edit)
         {
             if (ModelState.IsValid)
             {
                 taskContext.Update(edit);
                 taskContext.SaveChanges();
 
-                return RedirectToAction("AddTask");
+                return RedirectToAction("Quadrant");
             }
             else
             {
