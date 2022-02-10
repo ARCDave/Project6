@@ -1,19 +1,102 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
+.mainTitle {
+    margin-bottom: 50px;
+    border-bottom-style:groove;
+    border-bottom-width: 2px;
+    padding-bottom: 25px;
+}
+
 .QuadTitle {
-    background-color: lightblue;
     text-align: center;
-    border: 5px, solid, black;
-    border-bottom: 2px solid black;
+    border-radius: 3px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    min-width: fit-content;
 }
 
-.QuadBox {
-    border: 5px, solid, black;
-    border-style: solid;
+.QuadBorder {
     border-width: 2px;
-    margin-top: 5px;
+    border-color: black;
+    border-style: solid;
 }
 
+.QuadOne {
+    background-color: lightgreen;
+    border-radius: 3px;
+    color: black;
+}
+
+.QuadOneBorder {
+    border-color: lightgreen;
+    border-width: thick;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.QuadTwo {
+    background-color: lightblue;
+    border-radius: 3px;
+    color: black;
+}
+
+.QuadTwoBorder {
+    border-color: lightblue;
+    border-width: thick;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.QuadThree {
+    background-color: lightgoldenrodyellow;
+    border-radius: 3px;
+    color: black;
+}
+
+.QuadThreeBorder {
+    border-color: lightgoldenrodyellow;
+    border-width: thick;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.QuadFour {
+    background-color: lightcoral;
+    border-radius: 3px;
+    color: black;
+}
+
+.QuadFourBorder {
+    border-color: lightcoral;
+    border-width: thick;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.bottom-margin{
+   margin-bottom: 25px;
+}
+
+.myBtn{
+    text-decoration: none;
+    border: none;
+    text-align: center;
+    color: black;
+    width: 50%;
+    width: fit-content;
+    padding: 5px;
+}
+
+.myBtn:hover {
+    background-color: lightgray;
+    font-weight:bold;
+}
+
+.decline {
+
+    vertical-align:bottom;
+}
 .text-space {
     margin-top: 45px;
 }

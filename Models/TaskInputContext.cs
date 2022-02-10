@@ -38,9 +38,37 @@ namespace Project6.Models
                 new TaskInputModel
                 {
                     TaskId = 1,
+                    Task = "Finish this project",
                     DueDate = DateTime.Now,
                     QuadrantId = 1,
                     CategoryId = 2,
+                    Completed = false
+                },
+                new TaskInputModel
+                {
+                    TaskId = 2,
+                    Task = "Study for Exam",
+                    DueDate = DateTime.Now,
+                    QuadrantId = 2,
+                    CategoryId = 3,
+                    Completed = false
+                },
+                new TaskInputModel
+                {
+                    TaskId = 3,
+                    Task = "Clean the Dishes",
+                    DueDate = DateTime.Now,
+                    QuadrantId = 3,
+                    CategoryId = 3,
+                    Completed = false
+                },
+                new TaskInputModel
+                {
+                    TaskId = 4,
+                    Task = "Sleep",
+                    DueDate = DateTime.Now,
+                    QuadrantId = 4,
+                    CategoryId = 1,
                     Completed = false
                 }
             );
