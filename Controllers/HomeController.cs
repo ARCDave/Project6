@@ -43,6 +43,7 @@ namespace Project6.Controllers
         public IActionResult AddTask()
         {
             ViewBag.Category = taskContext.Categories.ToList();
+            ViewBag.Quadants = taskContext.Quadrants.ToList();
             return View();
         }
         [HttpPost]
