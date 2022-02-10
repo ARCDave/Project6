@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Remove Task";
+}
+
+@model TaskInputModel
+
+    <div class="text-center">
+        <div class="text-center">
+            <h1 class="display-4 mainTitle">Task Removal</h1>
+        </div>
+        <h3>Are you sure you want to remove "@Model.Task" from Quadrant @Model.QuadrantId?</h3>
+
+        <form method="post" asp-controller="Home" asp-action="Delete">
+            <div class="row">
+                <div class="col decline myBtn">
+                    <button class="btn" type="submit">Delete</button>
+                </div>
+            </div>
+
+            <div class=" decline myBtn">
+                <a class="text-decoration-none" asp-controller="Home" asp-action="Quadrant">Cancel</a>
+            </div>
+
+
+
+            <input type="hidden" asp-for="TaskId" />
+        </form>
+    </div>

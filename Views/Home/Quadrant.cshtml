@@ -2,41 +2,135 @@
     ViewData["Title"] = "Quadrant Page";
 }
 
+@model List<TaskInputModel>
+
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            <div class="Quad1 QuadBox">
-                <div class="QuadTitle">
-                    <p>Quadrant One</p>
-                </div>
-                <p>Test Text</p>
-
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="Quad2 QuadBox">
-                <div class="QuadTitle">
-                    <p>Quadrant Two</p>
-                </div>
-                <p>Test Text</p>
+        <div class="col-12 text-center">
+            <div class=" text-center">
+                <h1 class="mainTitle">My Matrix</h1>
+                <br />
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
-            <div class="Quad3 QuadBox">
-                <div class="QuadTitle">
-                    <p cl>Quadrant Three</p>
-                </div>
-                <p>Test Text</p>
+        <div class="col-2">
+            <div class=" text-center">
+                <p></p>
             </div>
         </div>
-        <div class="col-6">
-            <div class="Quad4 QuadBox">
-                <div class="QuadTitle">
-                    <p>Quadrant Four</p>
-                </div>
-                <p>Test Text</p>
+        <div class="col-5">
+            <div class="QuadTitle text-center">
+                <p>Urgent</p>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="QuadTitle text-center">
+                <p>Not Urgent</p>
+            </div>
+        </div>
+    </div>
+    <div class="row bottom-margin">
+        <div class="col-2">
+            <div class="QuadTitle text-center">
+                <p>Important</p>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="QuadOneBorder text-left">
+                <p class="QuadOne text-center">Quadrant 1</p>
+                @foreach (var x in Model) //MUST BE Model not model
+                {
+                    @if (x.QuadrantId == 1)
+                    {
+                        <div class="row">
+                            <div class="col-6">
+                                @x.Task
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a>
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="col-5 ">
+            <div class="QuadTwoBorder text-left">
+                <p class="QuadTwo text-center">Quadrant 2</p>
+                @foreach (var x in Model) //MUST BE Model not model
+                {
+                    @if (x.QuadrantId == 2)
+                    {
+                        <div class="row">
+                            <div class="col-6">
+                                @x.Task
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a>
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row bottom-margin">
+        <div class="col-2">
+            <div class="QuadTitle text-center">
+                <p>Not Important</p>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="QuadThreeBorder text-left">
+                <p class="QuadThree text-center">Quadrant 3</p>
+                @foreach (var x in Model) //MUST BE Model not model
+                {
+                    @if (x.QuadrantId == 3)
+                    {
+                        <div class="row">
+                            <div class="col-6">
+                                @x.Task
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a>
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="QuadFourBorder text-left">
+                <p class="QuadFour text-center">Quadrant 4</p>
+                
+                @foreach (var x in Model) //MUST BE Model not model
+                {
+                    @if (x.QuadrantId == 4)
+                    {
+                        <div class="row">
+                            <div class="col-6">
+                                @x.Task
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Edit" asp-route-taskid="@x.TaskId">Edit</a>
+                            </div>
+                            <div class="col-3">
+                                <a class="nav-link text-center text-dark btn-light" asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.TaskId">Delete</a>
+                            </div>
+                        </div>
+                    }
+                }
+                
             </div>
         </div>
     </div>

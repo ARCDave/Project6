@@ -22,21 +22,15 @@ namespace Project6.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            
-
-
             return View();
         }
 
+        [HttpGet]
         public IActionResult Quadrant()
         {
             var tasks = taskContext.Responses
-                /*.Where()*/
-                .OrderBy(x => x.Category)
-                .ToList();
-            var category = taskContext.Categories
-                .ToList();
-            var quadrant = taskContext.Quadrants
+                .Include(x => x.Quadrant)
+                .Include(x => x.Category)
                 .ToList();
 
             return View(tasks);
@@ -45,7 +39,8 @@ namespace Project6.Controllers
         public IActionResult AddTask()
         {
             ViewBag.Category = taskContext.Categories.ToList();
-            ViewBag.Quadants = taskContext.Quadrants.ToList();
+            ViewBag.Quadrants = taskContext.Quadrants.ToList();
+
             return View();
         }
         [HttpPost]
@@ -55,11 +50,14 @@ namespace Project6.Controllers
             {
                 taskContext.Add(Response);
                 taskContext.SaveChanges();
-                return RedirectToAction("AddTask", Response);
+
+                return RedirectToAction("Quadrant");
             }
             else
             {
                 ViewBag.Category = taskContext.Categories.ToList();
+                ViewBag.Quadrants = taskContext.Quadrants.ToList();
+
                 return View(Response);
             }
         }
@@ -67,6 +65,7 @@ namespace Project6.Controllers
         public IActionResult EditTask(int taskid)
         {
             ViewBag.Category = taskContext.Categories.ToList();
+            ViewBag.Quadrants = taskContext.Quadrants.ToList();
 
             var task = taskContext.Responses.Single(x => x.TaskId == taskid);
 
@@ -89,22 +88,23 @@ namespace Project6.Controllers
             }
         }
         [HttpGet]
-        public IActionResult DeleteTask(int taskid)
+        public IActionResult Delete(int taskid)
         {
             ViewBag.Category = taskContext.Categories.ToList();
+            ViewBag.Quadrants = taskContext.Quadrants.ToList();
 
             var task = taskContext.Responses.Single(x => x.TaskId == taskid);
 
-            return View();
+            return View("Delete", task);
         }
         [HttpPost]
-        public IActionResult DeleteTask(TaskInputModel delete)
+        public IActionResult Delete(TaskInputModel delete)
         {
             
                 taskContext.Responses.Remove(delete);
                 taskContext.SaveChanges();
 
-                return RedirectToAction("DeleteTask");
+                return RedirectToAction("Quadrant");
            
         }
     }
