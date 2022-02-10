@@ -16,32 +16,30 @@
         <input asp-for="DueDate" /><br />
 
         <label asp-for="QuadrantId">Quadrant:</label>
-        <input asp-for="Quadrant" /><br />
-
-
-        @*<label asp-for="Category">Category:</label>
-        <select asp-for="Category">
-            <option value="home">Home</option>
-            <option value="school">School</option>
-            <option value="work">Work</option>
-            <option value="church">Church</option>
-        </select><br />*@
-
-        <label asp-for="CategoryId">Category:</label>
-        <select asp-for="CategoryId">
-            <option value="">Select a Major</option>
-            @foreach (Category c in ViewBag.Categories)
+        <select asp-for="QuadrantId">
+            <option selected value=""></option>
+            @foreach (Quadrant q in ViewBag.Quadrants)
             {
-                <option value="@c.CategoryId">@c.CategoryName</option>
+            <option value="@q.QuadrantId">@q.QuadrantName</option>
             }
         </select><br />
 
-        <label asp-for="Completed"></label>
-        <select asp-for="Completed">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select><br />
+        <label asp-for="Category">Category:</label>
+            <select asp-for="CategoryId">
+                <option selected value=""></option>
+                @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+            </select>
 
-        <button type="submit">Add Task</button>
+                <label asp-for="Completed"></label>
+            <select asp-for="Completed">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br />
+
+            <button type="submit">Add Task</button>
     </form>
 </div>
