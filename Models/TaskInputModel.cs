@@ -11,17 +11,22 @@ namespace Project6.Models
         [Key]
         [Required]
         public int TaskId { get; set; }
+        [Required]
         public string Task { get; set; }
+        [Required]
         public DateTime DueDate { get; set; }
+        [Required]
         public bool Completed { get; set; }
 
         // Foreign Key Relationships
         [Required]
         public int CategoryId { get; set; }
+        [Required]
         public Category Category { get; set; }
 
         [Required]
         public int QuadrantId { get; set; }
+        [Required]
         public Quadrant Quadrant { get; set; }
 
     }
