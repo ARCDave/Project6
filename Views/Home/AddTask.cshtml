@@ -27,7 +27,7 @@
         <label asp-for="Category">Category:</label>
             <select asp-for="CategoryId">
                 <option selected value=""></option>
-                @foreach (Category c in ViewBag.Categories)
+                @foreach (Category c in ViewBag.Category)
             {
                 <option value="@c.CategoryId">@c.CategoryName</option>
             }
@@ -36,9 +36,8 @@
                 <label asp-for="Completed"></label>
             <select asp-for="Completed">
                 <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-            <br />
+                <option selected value="false">No</option>
+            </select><br />
 
             <button type="submit">Add Task</button>
     </form>
