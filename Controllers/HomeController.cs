@@ -50,12 +50,14 @@ namespace Project6.Controllers
             {
                 taskContext.Add(Response);
                 taskContext.SaveChanges();
-                return RedirectToAction("AddTask", Response);
+
+                return RedirectToAction("Quadrant");
             }
             else
             {
                 ViewBag.Category = taskContext.Categories.ToList();
                 ViewBag.Quadrants = taskContext.Quadrants.ToList();
+
                 return View(Response);
             }
         }
@@ -98,12 +100,12 @@ namespace Project6.Controllers
         [HttpPost]
         public IActionResult Delete(TaskInputModel delete)
         {
-            
-                taskContext.Responses.Remove(delete);
-                taskContext.SaveChanges();
 
-                return RedirectToAction("Quadrant");
-           
+            taskContext.Responses.Remove(delete);
+            taskContext.SaveChanges();
+
+            return RedirectToAction("Quadrant");
+
         }
     }
 }
