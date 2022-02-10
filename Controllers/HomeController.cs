@@ -35,7 +35,7 @@ namespace Project6.Controllers
             return View(tasks);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Quadrant()
         {
             return View();
         }
