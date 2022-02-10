@@ -19,7 +19,7 @@ namespace Project6.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Quadrant()
         {
             return View();
         }
