@@ -15,7 +15,7 @@
         <label asp-for="DueDate">Due date:</label>
         <input asp-for="DueDate" /><br />
 
-        <label asp-for="QuadrantId">Quadrant:</label>
+        @*<label asp-for="QuadrantId">Quadrant:</label>
         <select asp-for="QuadrantId">
             <option selected value=""></option>
             @foreach (Quadrant q in ViewBag.Quadrants)
@@ -31,7 +31,7 @@
             {
                 <option value="@c.CategoryId">@c.CategoryName</option>
             }
-            </select>
+            </select>*@
 
                 <label asp-for="Completed"></label>
             <select asp-for="Completed">
