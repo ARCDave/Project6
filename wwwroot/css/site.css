@@ -1,5 +1,18 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+.QuadTitle {
+    background-color: lightblue;
+    text-align: center;
+    border: 5px, solid, black;
+    border-bottom: 2px solid black;
+}
+
+.QuadBox {
+    border: 5px, solid, black;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: 5px;
+}
 
 a.navbar-brand {
   white-space: normal;
