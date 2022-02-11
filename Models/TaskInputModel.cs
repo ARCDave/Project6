@@ -14,19 +14,21 @@ namespace Project6.Models
         [Required]
         public string Task { get; set; }
         [Required]
-        public DateTime DueDate { get; set; }
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = @"{0:dd\/MM\/yyyy}",
+            ApplyFormatInEditMode = true)]
+        public DateTime? DueDate { get; set; }
         [Required]
         public bool Completed { get; set; }
 
         // Foreign Key Relationships
         [Required]
         public int CategoryId { get; set; }
-        [Required]
+        
         public Category Category { get; set; }
 
         [Required]
         public int QuadrantId { get; set; }
-        [Required]
+        
         public Quadrant Quadrant { get; set; }
 
     }
