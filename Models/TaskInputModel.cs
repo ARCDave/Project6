@@ -21,12 +21,12 @@ namespace Project6.Models
         // Foreign Key Relationships
         [Required]
         public int CategoryId { get; set; }
-        [Required]
+        
         public Category Category { get; set; }
 
         [Required]
         public int QuadrantId { get; set; }
-        [Required]
+        
         public Quadrant Quadrant { get; set; }
 
     }
